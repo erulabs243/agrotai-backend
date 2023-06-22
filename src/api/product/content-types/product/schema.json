@@ -45,6 +45,19 @@
       "relation": "manyToMany",
       "target": "api::campaign.campaign",
       "mappedBy": "products"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

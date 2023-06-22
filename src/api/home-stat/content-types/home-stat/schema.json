@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home-stat",
     "pluralName": "home-stats",
-    "displayName": "HomeStat"
+    "displayName": "HomeStat",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -51,6 +52,18 @@
       },
       "type": "string",
       "minLength": 25
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
