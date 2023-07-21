@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tours",
+  "info": {
+    "singularName": "tour",
+    "pluralName": "tours",
+    "displayName": "Tour"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "requestedDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
