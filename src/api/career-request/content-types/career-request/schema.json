@@ -4,7 +4,8 @@
   "info": {
     "singularName": "career-request",
     "pluralName": "career-requests",
-    "displayName": "CareerRequest"
+    "displayName": "CareerRequest",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -33,6 +34,14 @@
     "isRead": {
       "type": "boolean",
       "default": false,
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "man",
+        "woman"
+      ],
       "required": true
     }
   }
