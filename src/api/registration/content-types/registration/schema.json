@@ -38,15 +38,22 @@
       "type": "decimal",
       "required": true
     },
-    "files": {
+    "contrat": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "slip": {
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ],
       "type": "media",
-      "multiple": true
+      "multiple": false,
+      "required": true
     }
   }
 }
