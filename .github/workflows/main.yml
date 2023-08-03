@@ -29,10 +29,12 @@ jobs:
           port: 22
           script: |
             cd /home/erulabs243/agrotai-backend/
-            echo "Test" >> text.txt
-            echo "${{ secrets.SSH_HOST }}" >> text.txt
-            echo "DATABASE_NAME=${{ secrets.DATABASE_NAME }}" >> text.txt
-            node --version >> text.txt
+            git pull origin main
+            echo "DATABASE_NAME=${{ secrets.DATABASE_NAME }}" >> .env
+            echo "DATABASE_HOST=${{ secrets.DATABASE_HOST }}" >> .env
+            echo "DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}" >> .env
+            echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
+            git status
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
@@ -63,13 +65,13 @@ jobs:
           fail_on_empty: false
           sort_keys: false
           
-      - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+      #- name: Run install
+      #  uses: borales/actions-yarn@v4
+      #  with:
+      #    cmd: install
 
-      - name: Build production
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
+      #- name: Build production
+      #  uses: borales/actions-yarn@v4
+      #  with:
+      #    cmd: build
   
