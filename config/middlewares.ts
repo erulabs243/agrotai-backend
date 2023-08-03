@@ -1,3 +1,5 @@
+// TODO set cors for production and development environments
+
 export default [
   'strapi::errors',
   'strapi::security',
@@ -5,7 +7,7 @@ export default [
     name: 'strapi::cors',
     config: {
       headers: "*",
-      origin: ['http://localhost:1337', 'http://localhost:3000', 'http://localhost:8000']
+      origin: ['https://backend.agrotai.com', 'https://agrotai.com', 'https://crowdfarming.agrotai.com', 'https://admin.agrotai.com']
     }
   },
   'strapi::poweredBy',
