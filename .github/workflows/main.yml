@@ -28,13 +28,17 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            node --version
             cd /home/erulabs243/agrotai-backend/
-            git pull origin main
-            git status
-            echo ${{ secrets.HOST }} >> .env
-            yarn install
-            yarn build
+            echo "Test" >> text.txt
+            echo ${node --version} >> text.text
+          # script: |
+          #  node --version
+          #  cd /home/erulabs243/agrotai-backend/
+          #  git pull origin main
+          #  git status
+          #  echo ${{ secrets.HOST }} >> .env
+          #  yarn install
+          #  yarn build
             
       - name: Create .env file
         uses: SpicyPizza/create-envfile@v2.0
