@@ -28,6 +28,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            nvm use 18 
             cd /home/erulabs243/agrotai-backend/
             git pull origin main
             git status
