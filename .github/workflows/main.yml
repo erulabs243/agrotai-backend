@@ -62,14 +62,3 @@ jobs:
         with:
           cmd: build
   
-  pubish:
-    needs: build
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Start production
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: start
-  
