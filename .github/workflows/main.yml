@@ -32,6 +32,7 @@ jobs:
             echo "Test" >> text.txt
             echo "${{ secrets.SSH_HOST }}" >> text.txt
             echo "${{ secrets.DATABASE_NAME }}" >> text.txt
+            node --version >> text.txt
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
