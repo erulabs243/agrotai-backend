@@ -53,6 +53,7 @@ jobs:
             git status
             yarn install
             yarn build
+            yarn start
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
