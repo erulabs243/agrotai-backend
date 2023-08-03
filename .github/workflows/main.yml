@@ -31,6 +31,9 @@ jobs:
             cd /home/erulabs243/agrotai-backend/
             git pull origin main
             git status
+            echo ${{ secrets.HOST }} >> .env
+            yarn install
+            yarn build
             
       - name: Create .env file
         uses: SpicyPizza/create-envfile@v2.0
@@ -52,16 +55,6 @@ jobs:
           file_name: .env
           fail_on_empty: false
           sort_keys: false
-
-      - name: Copy .env file to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          source: ".env"
-          target: /home/erulabs243/agrotai-backend/
           
       - name: Run install
         uses: borales/actions-yarn@v4
