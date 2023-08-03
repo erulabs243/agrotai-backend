@@ -30,7 +30,8 @@ jobs:
           script: |
             cd /home/erulabs243/agrotai-backend/
             echo "Test" >> text.txt
-            nvm --version >> text.txt
+            echo "${{ secrets.SSH_HOST }}" >> text.txt
+            echo "${{ secrets.DATABASE_NAME }}" >> text.txt
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
