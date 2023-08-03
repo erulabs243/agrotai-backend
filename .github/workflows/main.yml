@@ -34,13 +34,25 @@ jobs:
             then
             git pull origin main
             else
+            echo "HOST=${{ secrets.HOST }}" >> .env
+            echo "PORT=${{ secrets.PORT }}" >> .env
+            echo "APP_KEYS=${{ secrets.APP_KEYS }}" >> .env
+            echo "API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}" >> .env
+            echo "ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}" >> .env
+            echo "TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }}" >> .env
+            echo "DATABASE_CLIENT=${{ secrets.DATABASE_CLIENT }}" >> .env
             echo "DATABASE_NAME=${{ secrets.DATABASE_NAME }}" >> .env
             echo "DATABASE_HOST=${{ secrets.DATABASE_HOST }}" >> .env
+            echo "DATABASE_PORT=${{ secrets.DATABASE_PORT }}" >> .env
             echo "DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}" >> .env
             echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
+            echo "DATABASE_SSL=${{ secrets.DATABASE_SSL }}" >> .env
+            echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
             git pull origin main
             fi
             git status
+            yarn install
+            yarn build
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
@@ -50,26 +62,26 @@ jobs:
           #  yarn install
           #  yarn build
             
-      - name: Create .env file
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_HOST: ${{ secrets.HOST }}
-          envkey_PORT: ${{ secrets.PORT }}
-          envkey_APP_KEYS: ${{ secrets.APP_KEYS }}
-          envkey_API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
-          envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
-          envkey_TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
-          envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
-          envkey_DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
-          envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
-          envkey_DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
-          envkey_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
-          envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-          envkey_DATABASE_SSL: ${{ secrets.DATABASE_SSL }}
-          envkey_JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          file_name: .env
-          fail_on_empty: false
-          sort_keys: false
+      #- name: Create .env file
+      #  uses: SpicyPizza/create-envfile@v2.0
+      #  with:
+      #    envkey_HOST: ${{ secrets.HOST }}
+      #    envkey_PORT: ${{ secrets.PORT }}
+      #    envkey_APP_KEYS: ${{ secrets.APP_KEYS }}
+      #    envkey_API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+      #    envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+      #    envkey_TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
+      #    envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
+      #    envkey_DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+      #    envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+      #    envkey_DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+      #    envkey_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+      #    envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      #    envkey_DATABASE_SSL: ${{ secrets.DATABASE_SSL }}
+      #    envkey_JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      #    file_name: .env
+      #    fail_on_empty: false
+      #    sort_keys: false
           
       #- name: Run install
       #  uses: borales/actions-yarn@v4
