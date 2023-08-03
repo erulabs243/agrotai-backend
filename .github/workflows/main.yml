@@ -51,9 +51,7 @@ jobs:
             git pull origin main
             fi
             git status
-            yarn install
-            yarn build
-            yarn start
+            sh deploy.sh
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
