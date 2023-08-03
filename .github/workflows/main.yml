@@ -30,7 +30,7 @@ jobs:
           script: |
             cd /home/erulabs243/agrotai-backend/
             echo "Test" >> text.txt
-            echo ${node --version} >> text.text
+            node --version >> text.text
           # script: |
           #  node --version
           #  cd /home/erulabs243/agrotai-backend/
