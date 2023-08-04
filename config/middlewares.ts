@@ -7,7 +7,7 @@ export default [
     name: 'strapi::cors',
     config: {
       headers: "*",
-      origin: ['https://backend.agrotai.com', 'https://agrotai.com', 'https://crowdfarming.agrotai.com', 'https://admin.agrotai.com']
+      origin: "*"
     }
   },
   'strapi::poweredBy',
