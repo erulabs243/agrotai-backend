@@ -32,8 +32,9 @@ jobs:
             FILE=.env
             if test -f "$FILE"; 
             then
+            rm .env
+            fi
             git pull origin main
-            else
             echo "HOST=${{ secrets.HOST }}" >> .env
             echo "PORT=${{ secrets.PORT }}" >> .env
             echo "APP_KEYS=${{ secrets.APP_KEYS }}" >> .env
@@ -48,8 +49,6 @@ jobs:
             echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
             echo "DATABASE_SSL=${{ secrets.DATABASE_SSL }}" >> .env
             echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
-            git pull origin main
-            fi
             git status
             sh deploy.sh
           # script: |
